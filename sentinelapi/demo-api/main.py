@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 from typing import Any, Dict, Literal
 
 from fastapi import FastAPI, Header, HTTPException
@@ -15,7 +16,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-MODE: Literal["vulnerable", "secure"] = "vulnerable"
+MODE: Literal["vulnerable", "secure"] = (
+    "secure" if os.getenv("MODE", "vulnerable").lower() == "secure" else "vulnerable"
+)
 
 
 class ModeRequest(BaseModel):

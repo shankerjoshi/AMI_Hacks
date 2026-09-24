@@ -38,6 +38,9 @@ paths:
 `;
 
 specText.value = SAMPLE_SPEC;
+baseUrl.value = window.location.hostname === 'localhost'
+  ? 'http://demo-api:8001'
+  : `${window.location.protocol}//${window.location.hostname}:8001`;
 
 button.addEventListener('click', async () => {
   summary.textContent = 'Running scanner...';

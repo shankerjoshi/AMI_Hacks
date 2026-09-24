@@ -103,7 +103,7 @@ async def run_scan(payload: ScanPayload):
     return {
         "status": "completed",
         "endpoints_discovered": len(endpoints),
-        "endpoints_tested": min(len(endpoints), 10),
+        "endpoints_tested": len(endpoints),
         "findings": findings,
     }
 
