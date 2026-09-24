@@ -4,7 +4,7 @@ from typing import Dict, List, Optional, Any
 from urllib.parse import urljoin
 import re
 
-from .schemas import Endpoint, EndpointParameter
+from schemas import Endpoint, EndpointParameter
 
 class OpenAPIParser:
     def __init__(self):
@@ -70,7 +70,7 @@ class OpenAPIParser:
                 param_schema = param["schema"]
             elif "type" in param:  # Swagger 2.0
                 param_schema = {"type": param["type"]}
-            
+
             endpoint_param = EndpointParameter(
                 name=param["name"],
                 location=param["in"],
@@ -110,14 +110,14 @@ class OpenAPIParser:
         ]
         
         for param in parameters:
-            param_name = param["name"]
-            
+            param_name = param.name
+
             # Check parameter name against patterns
             for pattern in id_patterns:
                 if re.match(pattern, param_name, re.IGNORECASE):
                     candidates.append(param_name)
                     break
-            
+
             # Also check path for {param} patterns
             path_param_pattern = rf'\{{{re.escape(param_name)}}}'
             if re.search(path_param_pattern, path):

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SentinelAPI Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div>
+          <p class="eyebrow">Track C / SentinelAPI</p>
+          <h1>Authorization Scanner</h1>
+        </div>
+      </header>
+
+      <main class="grid">
+        <section class="panel">
+          <h2>Scan setup</h2>
+          <label for="baseUrl">Demo API URL</label>
+          <input id="baseUrl" value="http://localhost:8001" />
+
+          <label for="specText">OpenAPI Spec</label>
+          <textarea id="specText" rows="16"></textarea>
+
+          <button id="runScan">Run scan</button>
+        </section>
+
+        <section class="panel">
+          <h2>Scan summary</h2>
+          <div id="summary">No scan started yet.</div>
+          <ul id="findingList" class="finding-list"></ul>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

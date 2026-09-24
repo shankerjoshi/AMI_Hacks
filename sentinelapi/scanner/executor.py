@@ -6,7 +6,7 @@ import time
 import logging
 from dataclasses import dataclass
 
-from .schemas import ScanRequest, Endpoint, AuthProfile
+from schemas import ScanRequest, Endpoint, AuthProfile
 
 logger = logging.getLogger(__name__)
 

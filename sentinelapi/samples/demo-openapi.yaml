@@ -1,0 +1,37 @@
+openapi: 3.0.0
+info:
+  title: SentinelAPI Demo Sandbox
+  version: '1.0.0'
+servers:
+  - url: http://demo-api:8001
+paths:
+  /orders/{id}:
+    get:
+      operationId: getOrder
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Order data
+  /profile/{id}:
+    get:
+      operationId: getProfile
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: User profile
+  /me:
+    get:
+      operationId: getCurrentUser
+      responses:
+        '200':
+          description: Current user profile
